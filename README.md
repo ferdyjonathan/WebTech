@@ -5,4 +5,4 @@ Diese Anwendung für die Wäscherei beinhaltet
 3. Wäscherei-Transaktionen mit Zahlungsstatus (Bezahlt, Unbezahlt)
 
 [![CI](https://github.com/ferdyjonathan/WebTech/actions/workflows/tests.yml/badge.svg)](https://github.com/ferdyjonathan/WebTech/actions/workflows/tests.yml)
-# Readme
+
