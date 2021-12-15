@@ -1,6 +1,7 @@
 package htw.berlin.webtech.demo.api;
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
@@ -45,4 +46,11 @@ public class BestellungRestController {
         boolean succesful = bestellungServiceImp.deleteById(id);
         return succesful? ResponseEntity.ok().build() : ResponseEntity.notFound().build();
     }
+
+    @GetMapping("/homepage")
+    public String greeting(@RequestParam(name="name", required=false, defaultValue="World") String name, Model model) {
+        model.addAttribute("name", name);
+        return "homepage";
+    }
+
 }
