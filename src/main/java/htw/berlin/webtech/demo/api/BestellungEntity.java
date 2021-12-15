@@ -23,7 +23,7 @@ public class BestellungEntity {
 
     @Column
     @Nullable
-    private String payment;
+    private Boolean payment;
 
     @Column
     @Nullable
@@ -33,7 +33,7 @@ public class BestellungEntity {
     @Nullable
     private double totalprice;
 
-    public BestellungEntity( String name, String paket, String payment, String status, double totalprice) {
+    public BestellungEntity( String name, String paket, Boolean payment, String status, double totalprice) {
         this.name = name;
         this.paket = paket;
         this.payment = payment;
@@ -64,11 +64,11 @@ public class BestellungEntity {
         this.paket = paket;
     }
 
-    public String getPayment() {
+    public Boolean getPayment() {
         return payment;
     }
 
-    public void setPayment(String payment) {
+    public void setPayment(Boolean payment) {
         this.payment = payment;
     }
 

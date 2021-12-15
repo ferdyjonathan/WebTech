@@ -27,7 +27,7 @@ public class BestellungServiceImp implements BestellungService {
     }
 
     public Bestellung create(BestellungManipulationRequest request){
-        var bestellungEntity = new BestellungEntity(request.getName(), request.getPayment(), request.getPaket(), request.getStatus(), request.getTotalprice());
+        var bestellungEntity = new BestellungEntity(request.getName(),request.getPaket(),request.getPayment(), request.getStatus(), request.getTotalprice());
         bestellungEntity = bestellungRepository.save(bestellungEntity);
         return transformEntity(bestellungEntity);
     }
@@ -36,7 +36,7 @@ public class BestellungServiceImp implements BestellungService {
         return new Bestellung(
                 bestellungEntity.getId(),
                 bestellungEntity.getName(),
-                bestellungEntity.getPayment(),
+                bestellungEntity.getPaket(),
                 bestellungEntity.getPayment(),
                 bestellungEntity.getStatus(),
                 bestellungEntity.getTotalprice()
@@ -65,10 +65,6 @@ public class BestellungServiceImp implements BestellungService {
 //    }
 
     public boolean deleteById(int id) {
-        if(!bestellungRepository.existsById(id)){
-            return false;
-        }
-
         bestellungRepository.deleteById(id);
         return true;
     }

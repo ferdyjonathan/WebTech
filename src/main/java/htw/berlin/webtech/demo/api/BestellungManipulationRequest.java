@@ -4,17 +4,19 @@ public class BestellungManipulationRequest {
 
     private String name;
     private String paket;
-    private String payment;
+    private Boolean payment;
     private String status;
     private double totalprice;
 
-    public BestellungManipulationRequest(String name, String paket, String payment, String status, double totalprice) {
+    public BestellungManipulationRequest(String name, String paket, Boolean payment, String status, double totalprice) {
         this.name = name;
         this.paket = paket;
         this.payment = payment;
         this.status = status;
         this.totalprice = totalprice;
     }
+
+    public BestellungManipulationRequest() {}
 
     public String getName() {
         return name;
@@ -32,11 +34,11 @@ public class BestellungManipulationRequest {
         this.paket = paket;
     }
 
-    public String getPayment() {
+    public Boolean getPayment() {
         return payment;
     }
 
-    public void setPayment(String payment) {
+    public void setPayment(Boolean payment) {
         this.payment = payment;
     }
 
