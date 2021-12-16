@@ -1,6 +1,6 @@
 package htw.berlin.webtech.demo.api;
 
-import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+import htw.berlin.webtech.demo.persistence.BestellungEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

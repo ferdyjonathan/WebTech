@@ -17,31 +17,31 @@ public class BestellungRestController {
         this.bestellungServiceImp = bestellungServiceImp;
     }
 
-    @GetMapping(path = "/bestellungs")
+    @GetMapping(path = "/api/bestellungs")
     public ResponseEntity<List<Bestellung>> fetchBestellungs(){
         return ResponseEntity.ok(bestellungServiceImp.findall());
     }
 
-    @GetMapping(path = "/bestellungs/{id}")
+    @GetMapping(path = "/api/bestellungs/{id}")
     public ResponseEntity<Bestellung> fetchBestellungById(@PathVariable Integer id){
         var bestellung = bestellungServiceImp.findById(id);
         return bestellung != null? ResponseEntity.ok(bestellung) : ResponseEntity.notFound().build();
     }
 
-    @PostMapping(path = "/bestellungs")
+    @PostMapping(path = "/api/bestellungs")
     public ResponseEntity<Void> createBestellung(@RequestBody BestellungManipulationRequest request) throws URISyntaxException {
         var bestellung= bestellungServiceImp.create(request);
-        URI uri = new URI("/bestellung/" + bestellung.getId());
+        URI uri = new URI("/api/bestellung/" + bestellung.getId());
         return ResponseEntity.created(uri).build();
     }
 
-    @PutMapping(path = "/bestellungs/{id}")
+    @PutMapping(path = "/api/bestellungs/{id}")
     public ResponseEntity<Bestellung> updateBestellung(@PathVariable Integer id, @RequestBody BestellungManipulationRequest request){
         var bestellung = bestellungServiceImp.update(id, request);
         return bestellung != null? ResponseEntity.ok(bestellung) : ResponseEntity.notFound().build();
     }
 
-    @DeleteMapping(path = "/bestellungs/{id}")
+    @DeleteMapping(path = "/api/bestellungs/{id}")
     public ResponseEntity<Void> deleteBestellung(@PathVariable Integer id){
         boolean succesful = bestellungServiceImp.deleteById(id);
         return succesful? ResponseEntity.ok().build() : ResponseEntity.notFound().build();

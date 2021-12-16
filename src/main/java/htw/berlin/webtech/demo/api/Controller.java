@@ -1,9 +1,8 @@
 package htw.berlin.webtech.demo.api;
 
+import htw.berlin.webtech.demo.persistence.BestellungEntity;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.view.RedirectView;
 
 import java.util.List;
 
