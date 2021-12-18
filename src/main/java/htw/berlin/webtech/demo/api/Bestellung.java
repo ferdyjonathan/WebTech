@@ -18,7 +18,7 @@ public class Bestellung {
         this.paket = paket;
         this.payment= payment;
         this.status = status;
-        this.totalprice =  totalprice;
+        this.totalprice = totalprice;
     }
 
     public int getId() {

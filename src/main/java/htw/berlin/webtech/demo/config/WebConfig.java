@@ -1,4 +1,4 @@
-package config;
+package htw.berlin.webtech.demo.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
@@ -8,12 +8,10 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @Configuration
 @EnableWebMvc
-public class Webconfig implements WebMvcConfigurer {
+public class WebConfig implements WebMvcConfigurer {
 
     @Override
     public void addCorsMappings(CorsRegistry registry) {
-        registry.addMapping("/api/**")
-                .allowedMethods("*")
-                .allowedOrigins("http://localhost:3000","https://laundryferdy-frontend.herokuapp.com");
+        registry.addMapping("/**").allowedMethods("*").allowedOrigins("http://localhost:3000","https://laundryferdy-frontend.herokuapp.com")
     }
 }

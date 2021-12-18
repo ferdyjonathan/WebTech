@@ -4,7 +4,7 @@ import com.sun.istack.Nullable;
 
 import javax.persistence.*;
 
-@Entity(name = "bestellung")
+@Entity(name = "bestellungs")
 public class BestellungEntity {
 
     @Column

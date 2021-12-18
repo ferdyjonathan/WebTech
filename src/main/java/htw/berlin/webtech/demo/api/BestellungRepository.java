@@ -9,6 +9,4 @@ import java.util.List;
 @Repository
 public interface BestellungRepository extends JpaRepository<BestellungEntity, Integer> {
 
-    List<BestellungEntity> findAllById(Integer id);
-
 }

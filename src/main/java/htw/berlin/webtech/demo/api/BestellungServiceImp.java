@@ -1,6 +1,7 @@
 package htw.berlin.webtech.demo.api;
 
 import htw.berlin.webtech.demo.persistence.BestellungEntity;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
