@@ -1,8 +1,5 @@
 package htw.berlin.webtech.demo.api;
 
-
-import javax.persistence.Entity;
-
 public class Bestellung {
 
     private int id;
@@ -45,7 +42,7 @@ public class Bestellung {
         this.paket = paket;
     }
 
-    public Boolean getPayment() {
+    public Boolean isPayment() {
         return payment;
     }
 

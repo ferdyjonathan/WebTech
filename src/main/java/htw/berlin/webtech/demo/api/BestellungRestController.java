@@ -4,6 +4,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
@@ -29,10 +30,16 @@ public class BestellungRestController {
     }
 
     @PostMapping(path = "/api/bestellungs")
-    public ResponseEntity<Void> createBestellung(@RequestBody BestellungManipulationRequest request) throws URISyntaxException {
-        var bestellung= bestellungServiceImp.create(request);
-        URI uri = new URI("/api/bestellung/" + bestellung.getId());
-        return ResponseEntity.created(uri).build();
+    public ResponseEntity<Void> createBestellung(@Valid @RequestBody BestellungManipulationRequest request) throws URISyntaxException {
+        var valid = validate(request);
+        if(valid){
+            var bestellung= bestellungServiceImp.create(request);
+            URI uri = new URI("/api/bestellungs/" + bestellung.getId());
+            return ResponseEntity.created(uri).build();
+        }
+        else {
+            return ResponseEntity.badRequest().build();
+        }
     }
 
     @PutMapping(path = "/api/bestellungs/{id}")
@@ -53,4 +60,13 @@ public class BestellungRestController {
         return "homepage";
     }
 
+    private boolean validate(BestellungManipulationRequest request){
+        return request.getName() != null
+                && !request.getName().isBlank()
+                && request.getPaket() != null
+                && request.getTotalprice() != 0
+                && !request.getPaket().isBlank()
+                && request.getStatus() != null
+                && !request.getStatus().isBlank();
+    }
 }

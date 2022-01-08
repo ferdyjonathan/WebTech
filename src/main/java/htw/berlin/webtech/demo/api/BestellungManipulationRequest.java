@@ -1,8 +1,12 @@
 package htw.berlin.webtech.demo.api;
 
+import javax.validation.constraints.Size;
+
 public class BestellungManipulationRequest {
 
+    @Size(min = 3, message = "Please provide name with 3 characters or more.")
     private String name;
+
     private String paket;
     private Boolean payment;
     private String status;

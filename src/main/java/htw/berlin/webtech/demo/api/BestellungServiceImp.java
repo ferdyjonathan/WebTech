@@ -67,6 +67,10 @@ public class BestellungServiceImp implements BestellungService {
 //    }
 
     public boolean deleteById(int id) {
+        if(!bestellungRepository.existsById(id)){
+            return false;
+        }
+
         bestellungRepository.deleteById(id);
         return true;
     }
