@@ -62,10 +62,6 @@ public class BestellungServiceImp implements BestellungService {
     return transformEntity(bestellungEntity);
     }
 
-//    public BestellungEntity save(BestellungEntity bestellungs) {
-//        return bestellungRepository.save(bestellungs);
-//    }
-
     public boolean deleteById(int id) {
         if(!bestellungRepository.existsById(id)){
             return false;

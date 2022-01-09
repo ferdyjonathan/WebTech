@@ -54,12 +54,6 @@ public class BestellungRestController {
         return succesful? ResponseEntity.ok().build() : ResponseEntity.notFound().build();
     }
 
-    @GetMapping("/homepage")
-    public String greeting(@RequestParam(name="name", required=false, defaultValue="World") String name, Model model) {
-        model.addAttribute("name", name);
-        return "homepage";
-    }
-
     private boolean validate(BestellungManipulationRequest request){
         return request.getName() != null
                 && !request.getName().isBlank()
